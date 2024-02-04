@@ -1,5 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+
+
 # TODO создайте здесь все необходимые формы
 
 
@@ -9,10 +11,16 @@ class TemplateForm(forms.Form):
     my_select = forms.ChoiceField(choices=(
         ("begin", "Начальные"),
         ("middle", "Средние"),
-        ("snake_speek", "Разговариваю со змеями"),
+        ("snake_speak", "Разговариваю со змеями"),
+        ('god', "Змеи мне подчиняются")
     ))
     # widget тоже нужен только для отображения в HTML
     my_textarea = forms.CharField(widget=forms.Textarea)
+    my_email = forms.EmailField()
+    my_password = forms.CharField(widget=forms.PasswordInput)
+    my_date = forms.DateField()
+    my_number = forms.IntegerField()
+    my_checkbox = forms.NullBooleanField()
 
     # TODO Опишите поля (поле для email, пароля, даты, целого числа, переключателя) и их параметры для вашего шаблона формы
 
@@ -51,3 +59,5 @@ class TemplateForm(forms.Form):
 * forms.RegexField(regex='[А-яA-z]+') - <input type="text"> (с дополнительной валидацией на стороне сервера для соответствия регулярному выражению)
 * forms.UUIDField() - <input type="text"> (для ввода UUID)
 """
+
+
